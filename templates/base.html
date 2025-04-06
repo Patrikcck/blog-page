@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8"/>
+    <link href="{{ url_for('static', filename='style.css') }}" rel="stylesheet"/>
+    <title>{% block title %}{% endblock %}</title>
+  </head>
+  <body>
+    <div class="background"style="background-image: url('{{ url_for('static', filename=background_image) }}');"></div>
+    <header>
+      <h1><a href="{{ url_for('display_posts') }}">My Climbing Blog</a></h1>
+    </header>
+    <main>
+        {% block content %}
+        {% endblock %}
+      </main>
+    </body>
+    <footer>  
+      <a href="{{ url_for('display_all_users') }}"><i>Users</i></a>
+    </footer>
+</html>

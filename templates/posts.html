@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block title %}Blog Posts{% endblock %}
+
+{% block content %}
+<ul>
+  {% for post in posts %}
+  <li>
+    <a href="{{ url_for('display_post', post_id=post.id) }}">
+      <h1>{{ post.title }}</h1> 
+    </a>
+    <p>{{ post.body[:50] }}{{ '...' if post.body|length > 30 else '' }}</p>
+    <i class="date">Posted on {{ post.posted.strftime('%Y-%m-%d %H:%M:%S') }}</i>
+  </li>
+  {% endfor %}
+</ul>
+<a href="{{ url_for('create_post') }}">Create a New Post</a>
+
+{% endblock %}
